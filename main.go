@@ -1,5 +1,7 @@
 package main
 
+import "wxServ/app"
+
 func main() {
-	(&service{}).run()
+	app.Run()
 }
