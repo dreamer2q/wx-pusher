@@ -22,7 +22,7 @@ jobs:
               dep ensure
           fi
       - name: Build
-        run: go build -v -o main .
+        run: go build -tags netgo -v -o main .
 
       - name: Publish Docker
         uses: elgohr/Publish-Docker-Github-Action@master
