@@ -19,3 +19,4 @@ func markdown(s string) template.HTML {
 	outHTML := blackfriday.Run([]byte(s))
 	return template.HTML(outHTML)
 }
+

@@ -1,10 +1,10 @@
 package api
 
 import (
-	"fmt"
 	"github.com/gin-gonic/gin"
 	"time"
 	"wx-pusher/model"
+	"wx-pusher/route/helper"
 	"wx-pusher/service/wechat"
 	"wx-pusher/util"
 )
@@ -42,7 +42,7 @@ func push() gin.HandlerFunc {
 		} else {
 			util.MakeSuccess(c, gin.H{
 				"msgId": msgId,
-				"url":   fmt.Sprintf("http://mjj.dreamer2q.wang/show?id=%v", msgId),
+				"url":   helper.ShowUrl(msgId),
 			})
 		}
 	}
