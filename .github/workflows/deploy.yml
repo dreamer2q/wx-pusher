@@ -33,10 +33,11 @@ jobs:
           password: ${{ secrets.DOCKER_PASS }} # 密码
           dockerfile: Dockerfile
           snapshot: true
-      - name:
-          run: |
-            sleep 5
-            curl -d "" http://mjj.dreamer2q.wang:9000/api/webhooks/7ff32fe2-5946-4089-b329-8b58636bb25d
+      
+      - name: trigger deploy web hook
+        run: | 
+          sleep 5
+          curl -d "" http://mjj.dreamer2q.wang:9000/api/webhooks/7ff32fe2-5946-4089-b329-8b58636bb25d
 
           # registry: registry.cn-hangzhou.aliyuncs.com # 阿里巴巴的 Docker Hub
           # dockerfile: Dockerfile # 指定 Dockerfile 的位置
