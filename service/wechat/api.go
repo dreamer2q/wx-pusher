@@ -4,8 +4,9 @@ import (
 	"fmt"
 	"github.com/dreamer2q/go_wechat/message"
 	"github.com/gin-gonic/gin"
-	"wxServ/model"
-	"wxServ/service/redis"
+	"wx-pusher/config"
+	"wx-pusher/model"
+	"wx-pusher/service/redis"
 )
 
 type tplVal struct {
@@ -22,7 +23,7 @@ func PushMsg(openID string, msg *model.PushMsg) (string, error) {
 		&message.TemplateMsg{
 			ToUser:     openID,
 			TemplateID: "HVDIV2B3Z5HFxVwiQekfSOnMz3Yte02VMYYJdMl7mMA",
-			URL:        fmt.Sprintf("mjj.dreamer2q.wang/show?id=%s", key),
+			URL:        fmt.Sprintf("%s/show?id=%s", config.Api.Domain, key),
 			Data: gin.H{
 				"time": tplVal{
 					Value: msg.CreateTime.Format("2006 01-02 15:04:05"),

@@ -3,7 +3,7 @@ package model
 import (
 	"errors"
 	"github.com/jinzhu/gorm"
-	"wxServ/service/db"
+	"wx-pusher/service/db"
 )
 
 type Token struct {

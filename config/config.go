@@ -5,6 +5,9 @@ import (
 )
 
 type Config struct {
+	Api struct {
+		Domain string
+	}
 	Wechat struct {
 		AppID        string
 		AppSecret    string
@@ -15,7 +18,7 @@ type Config struct {
 		Debug        bool
 	}
 	Log struct {
-		Path  string
+		//Path  string
 		Level string
 	}
 	Database struct {
@@ -24,12 +27,17 @@ type Config struct {
 		Pass   string
 		DBName string
 	}
+	Redis struct {
+		Host string
+	}
 }
 
 var config Config
 var Wechat = &config.Wechat
 var Log = &config.Log
 var DB = &config.Database
+var Redis = &config.Redis
+var Api = &config.Api
 
 func Init() {
 	loadConfig("config/config.toml")

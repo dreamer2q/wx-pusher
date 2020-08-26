@@ -2,10 +2,12 @@ package redis
 
 import (
 	"encoding/json"
+	"fmt"
 	"github.com/go-redis/redis"
 	"strconv"
 	"time"
-	"wxServ/service/log"
+	"wx-pusher/config"
+	"wx-pusher/service/log"
 )
 
 var client *redis.Client
@@ -16,7 +18,7 @@ func Instance() *redis.Client {
 
 func Init() {
 	client = redis.NewClient(&redis.Options{
-		Addr:     "localhost:6379",
+		Addr:     fmt.Sprintf("%s:6379", config.Redis.Host),
 		Password: "",
 		DB:       0,
 	})

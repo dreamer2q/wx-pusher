@@ -2,8 +2,8 @@ package route
 
 import (
 	"github.com/gin-gonic/gin"
-	"wxServ/route/api"
-	"wxServ/route/page"
+	"wx-pusher/route/api"
+	"wx-pusher/route/page"
 )
 
 func Init(g *gin.Engine) {

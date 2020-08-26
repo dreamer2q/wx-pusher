@@ -5,8 +5,8 @@ import (
 	wc "github.com/dreamer2q/go_wechat"
 	"github.com/gin-gonic/gin"
 	"time"
-	"wxServ/config"
-	"wxServ/service/log"
+	"wx-pusher/config"
+	"wx-pusher/service/log"
 )
 
 const (

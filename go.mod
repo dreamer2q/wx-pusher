@@ -1,4 +1,4 @@
-module wxServ
+module wx-pusher
 
 go 1.14
 

@@ -2,9 +2,7 @@ package log
 
 import (
 	"github.com/sirupsen/logrus"
-	"os"
-	"runtime"
-	"wxServ/config"
+	"wx-pusher/config"
 )
 
 var log *logrus.Logger
@@ -26,13 +24,13 @@ func Init() {
 		QuoteEmptyFields:       true,
 	})
 	log.Debugf("log init")
-	if runtime.GOOS != "windows" {
-		out, err := os.OpenFile(config.Log.Path, os.O_APPEND, 0)
-		if err != nil {
-			panic(err)
-		}
-		log.SetOutput(out)
-	}
+	//if config.Log.Path != "" && runtime.GOOS != "windows" {
+	//	out, err := os.OpenFile(config.Log.Path, os.O_APPEND, 0)
+	//	if err != nil {
+	//		panic(err)
+	//	}
+	//	log.SetOutput(out)
+	//}
 	if level, err := logrus.ParseLevel(config.Log.Level); err != nil {
 		panic(err)
 	} else {

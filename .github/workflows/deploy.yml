@@ -1,0 +1,53 @@
+name: build & push & deply
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Go 1.x
+        uses: actions/setup-go@v2.1.1
+        id: go
+      - name: Check out code into the Go module directory
+        uses: actions/checkout@v2
+      - name: Get dependencies
+        run: |
+          go get -v -t -d ./...
+          if [ -f Gopkg.toml ]; then
+              curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
+              dep ensure
+          fi
+      - name: Build
+        run: go build -v -o main .
+
+      - name: Publish Docker
+        uses: elgohr/Publish-Docker-Github-Action@master
+        with:
+          name: registry.cn-hangzhou.aliyuncs.com/dreamer2q/wx-pusher
+          registry: registry.cn-hangzhou.aliyuncs.com
+          username: ${{ secrets.DOCKER_USER }} # 用户名
+          password: ${{ secrets.DOCKER_PASS }} # 密码
+          dockerfile: Dockerfile
+          snapshot: true
+
+          # registry: registry.cn-hangzhou.aliyuncs.com # 阿里巴巴的 Docker Hub
+          # dockerfile: Dockerfile # 指定 Dockerfile 的位置
+#      - name: ssh remote update service
+#        uses: appleboy/ssh-action@master
+#        with:
+#          host: ${{ secrets.SSH_HOST }}
+#          username: ${{ secrets.SSH_USER }}
+#          key: ${{ secrets.SSH_KEY }}
+#          port: ${{ secrets.SSH_PORT }}
+#          script: |
+#            who
+#            sleep 10
+#            echo ${{ secrets.DOCKER_PASS }} | docker login --username=${{ secrets.DOCKER_USER }} --password-stdin registry.cn-hangzhou.aliyuncs.com
+#            docker pull registry.cn-hangzhou.aliyuncs.com/dreamer2q/zixun-go:latest
+#            docker service update zixun_web --image registry.cn-hangzhou.aliyuncs.com/dreamer2q/zixun-go:latest --with-registry-auth
+#            docker service ls
+#            docker service ps zixun_web

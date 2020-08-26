@@ -4,8 +4,8 @@ import (
 	"github.com/gin-gonic/gin"
 	"net/http"
 	"strconv"
-	"wxServ/model"
-	"wxServ/service/redis"
+	"wx-pusher/model"
+	"wx-pusher/service/redis"
 )
 
 func Init(g gin.IRouter) {

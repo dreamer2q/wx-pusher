@@ -2,13 +2,13 @@ package app
 
 import (
 	"github.com/gin-gonic/gin"
-	"wxServ/config"
-	"wxServ/model"
-	"wxServ/route"
-	"wxServ/service/db"
-	"wxServ/service/log"
-	"wxServ/service/redis"
-	"wxServ/service/wechat"
+	"wx-pusher/config"
+	"wx-pusher/model"
+	"wx-pusher/route"
+	"wx-pusher/service/db"
+	"wx-pusher/service/log"
+	"wx-pusher/service/redis"
+	"wx-pusher/service/wechat"
 )
 
 var g *gin.Engine
@@ -29,5 +29,5 @@ func Init() {
 func Run() {
 	Init()
 	log.Instance().Info("starting wx server")
-	panic(g.Run(":80"))
+	panic(g.Run(":8080"))
 }

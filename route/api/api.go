@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"github.com/gin-gonic/gin"
 	"time"
-	"wxServ/model"
-	"wxServ/service/wechat"
-	"wxServ/util"
+	"wx-pusher/model"
+	"wx-pusher/service/wechat"
+	"wx-pusher/util"
 )
 
 func Init(g gin.IRouter) {

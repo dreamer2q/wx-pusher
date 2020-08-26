@@ -5,8 +5,8 @@ import (
 	wc "github.com/dreamer2q/go_wechat"
 	"github.com/dreamer2q/go_wechat/menu"
 	"github.com/jinzhu/gorm"
-	"wxServ/model"
-	"wxServ/util"
+	"wx-pusher/model"
+	"wx-pusher/util"
 )
 
 func initMenu() {

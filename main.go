@@ -1,6 +1,6 @@
 package main
 
-import "wxServ/app"
+import "wx-pusher/app"
 
 func main() {
 	app.Run()

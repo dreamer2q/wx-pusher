@@ -4,7 +4,7 @@ import (
 	"fmt"
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/jinzhu/gorm"
-	"wxServ/config"
+	"wx-pusher/config"
 )
 
 var db *gorm.DB
