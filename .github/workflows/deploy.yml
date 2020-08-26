@@ -33,9 +33,9 @@ jobs:
           password: ${{ secrets.DOCKER_PASS }} # 密码
           dockerfile: Dockerfile
           snapshot: true
-      
+
       - name: trigger deploy web hook
-        run: | 
+        run: |
           sleep 5
           curl -d "" http://mjj.dreamer2q.wang:9000/api/webhooks/7ff32fe2-5946-4089-b329-8b58636bb25d
 
