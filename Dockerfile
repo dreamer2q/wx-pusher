@@ -1,4 +1,4 @@
-FROM busybox
+FROM alpine
 
 EXPOSE 8080
 
