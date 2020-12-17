@@ -37,22 +37,7 @@ jobs:
       - name: trigger deploy web hook
         run: |
           sleep 5
-          curl -d "" http://mjj.dreamer2q.wang:9000/api/webhooks/7ff32fe2-5946-4089-b329-8b58636bb25d
+          curl -d "" ${{ secrets.WEBHOOK }}
 
           # registry: registry.cn-hangzhou.aliyuncs.com # 阿里巴巴的 Docker Hub
           # dockerfile: Dockerfile # 指定 Dockerfile 的位置
-#      - name: ssh remote update service
-#        uses: appleboy/ssh-action@master
-#        with:
-#          host: ${{ secrets.SSH_HOST }}
-#          username: ${{ secrets.SSH_USER }}
-#          key: ${{ secrets.SSH_KEY }}
-#          port: ${{ secrets.SSH_PORT }}
-#          script: |
-#            who
-#            sleep 10
-#            echo ${{ secrets.DOCKER_PASS }} | docker login --username=${{ secrets.DOCKER_USER }} --password-stdin registry.cn-hangzhou.aliyuncs.com
-#            docker pull registry.cn-hangzhou.aliyuncs.com/dreamer2q/zixun-go:latest
-#            docker service update zixun_web --image registry.cn-hangzhou.aliyuncs.com/dreamer2q/zixun-go:latest --with-registry-auth
-#            docker service ls
-#            docker service ps zixun_web
