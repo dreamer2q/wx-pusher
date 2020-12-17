@@ -12,11 +12,21 @@
 - 美化消息展示页面
 - 添加更多`API`
 
+**测试**
+
+这里提供了一个demo, 你可以关注下面的测试账号
+
+![测试号](asset/subscribe.jpg)
+
+关注后，点击获取`token`
+
+使用api进行消息推送
+
+ - **API** https://wx.dreamer2q.wang/api/push
+
 **DEMO**
 
-![Screenshot_20200430_101219](https://i.loli.net/2020/04/30/CJH1d8k9wQLgU5K.jpg)
-
-![Screenshot_20200430_101234](https://i.loli.net/2020/04/30/IV23Eau7tQHTDdi.jpg)
+![demo](asset/demo.png)
 
 # API
 
